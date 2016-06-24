@@ -1,22 +1,24 @@
-<h1>Listing Articles</h1>
-<p>
-	<%= link_to "Create New Article", new_article_path %>
-</p>
-<table border="1px solid">
-	<tr>
-		<td>Title</td>
-		<td>Description</td>
-		<td>Commands</td>
-	</tr>
-	<% @articles.each do |article| %>
-	<tr>
-		<td><%= article.title %></td>
-		<td><%= article.description %></td>
-		<td colspan="2">
-			<%= link_to "Edit", edit_article_path(article) %> | 
-			<%= link_to "Show", article_path(article) %> |
-			<%= link_to "Delete", article_path(article),method: :delete, data:{ confirm:'Are You Sure ?'} %>
-		</td>
-	</tr>
-	<% end %>
-</table>
+<div class="container">
+	<h1>Listing Articles</h1>
+	<p>
+		<%= link_to "Create New Article", new_article_path %>
+	</p>
+	<table border="1px solid">
+		<tr>
+			<td>Title</td>
+			<td>Description</td>
+			<td>Commands</td>
+		</tr>
+		<% @articles.each do |article| %>
+		<tr>
+			<td><%= article.title %></td>
+			<td><%= article.description %></td>
+			<td colspan="2">
+				<%= link_to "Edit", edit_article_path(article) %> | 
+				<%= link_to "Show", article_path(article) %> |
+				<%= link_to "Delete", article_path(article),method: :delete, data:{ confirm:'Are You Sure ?'} %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+</div>
