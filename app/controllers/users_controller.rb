@@ -38,6 +38,15 @@ class UsersController < ApplicationController
 		
 	end
 
+	def destroy
+		if @user.destroy
+			flash[:success] = "User Removed!"
+			redirect_to users_path
+		else
+			render 'index'
+		end
+	end
+
 	private
 
 	def require_same_user

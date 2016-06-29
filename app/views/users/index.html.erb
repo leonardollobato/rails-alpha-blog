@@ -13,6 +13,21 @@
 					<li><small>
 						<%= pluralize(user.articles.count, "article")if user.articles %>
 					</small></li>
+					<% if user.admin? %>
+					<li class="alert alert-info">
+						<small>
+							<strong>
+								ADMIN
+							</strong>
+						</small>
+					</li>
+					<% end %>
+					<% if current_user && current_user.admin? && current_user.email != user.email%>
+					<li>
+						<%= link_to "Delete", user_path(user),method: :delete, data:{ confirm:'Are You Sure ?'}, class: "btn btn-xs btn-danger" %>
+					</li>
+					<% end %>
+					
 				</div>
 			</div>
 		</ul>
