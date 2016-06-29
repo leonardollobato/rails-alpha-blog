@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 	private
 
 	def require_same_user
-		if current_user != @user 
+		if current_user != @user && !current_user.admin?
 			flash[:danger] = "You cannot edit someone else record"
 			redirect_to root_path
 		end
